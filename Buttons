@@ -1,0 +1,52 @@
+static int levelNumber = 0;
+static int windowNumber = 0;
+
+Button[] buttons;
+
+void setup() {
+  size(700, 700);
+  frameRate(60);
+  
+  //Buttons
+  buttons = new Button[6];
+  buttons[0] = new Button(50, 50, 150, 80, "Play");
+  buttons[1] = new Button(50, 150, 150, 80, "Choose Level");
+  buttons[2] = new Button(50, 250, 150, 80, "Options");
+  buttons[3] = new Button(50, 350, 150, 80, "Exit");
+  buttons[4] = new Button(50, 450, 150, 80, "Back");
+}
+
+void draw() {
+  background(#74C8FF);
+  
+  switch(windowNumber) {
+  case 0:
+    menu();
+    break;
+  case 1:
+    chooseLevel();
+    break;
+  case 2:
+    options();
+    break;
+  case 3:
+    exitGame();
+    break;
+  case 4:
+    goBack();
+    break;
+  }
+}
+
+static boolean[] keys = new boolean[7];
+
+boolean Key;
+void mousePressed() {
+  if (mouseButton==LEFT)
+  Key = true;
+}
+
+void mouseReleased() {
+  if (mouseButton==LEFT)
+  Key = false;
+}
