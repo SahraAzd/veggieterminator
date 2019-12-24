@@ -7,6 +7,12 @@ void setup() {
   size(700, 700);
   frameRate(60);
   
+  createButtons();
+  loadImages();
+  loadAudio();
+  
+  windowNumber = 3;
+  
   //Buttons
   buttons = new Button[6];
   buttons[0] = new Button(50, 50, 150, 80, "Play");
@@ -24,16 +30,10 @@ void draw() {
     menu();
     break;
   case 1:
-    chooseLevel();
+    impressum();
     break;
   case 2:
-    options();
-    break;
-  case 3:
-    exitGame();
-    break;
-  case 4:
-    goBack();
+    seeMakingOf();
     break;
   }
 }
