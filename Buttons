@@ -1,52 +1,45 @@
-static int levelNumber = 0;
-static int windowNumber = 0;
-
-Button[] buttons;
-
-void setup() {
-  size(700, 700);
-  frameRate(60);
+class Button{
   
-  //Buttons
-  buttons = new Button[6];
-  buttons[0] = new Button(50, 50, 150, 80, "Play");
-  buttons[1] = new Button(50, 150, 150, 80, "Choose Level");
-  buttons[2] = new Button(50, 250, 150, 80, "Options");
-  buttons[3] = new Button(50, 350, 150, 80, "Exit");
-  buttons[4] = new Button(50, 450, 150, 80, "Back");
-}
-
-void draw() {
-  background(#74C8FF);
+  float posX, posY;
+  int wScale, hScale;
+  String text;
+  boolean mouseInside;
   
-  switch(windowNumber) {
-  case 0:
-    menu();
-    break;
-  case 1:
-    chooseLevel();
-    break;
-  case 2:
-    options();
-    break;
-  case 3:
-    exitGame();
-    break;
-  case 4:
-    goBack();
-    break;
+  PImage buttonImg, buttonPressedImg;
+  
+  Button (float x, float y, float w, float h, String t) {
+    posX = x;
+    posY = y;
+    wScale = round(w);
+    hScale = round(h);
+    text = t;
+    
+    buttonImg = loadImage("SaveSugar-Button.png");
+    buttonImg.resize(wScale, hScale);
+    buttonPressedImg = loadImage("EliminateVeggies-Button.png");
+    buttonPressedImg.resize(wScale, hScale);
   }
-}
+  
+  void drawThis(){
+    if (mouseInside == true) {
+      strokeWeight(4);
+      fill(100);
+      rect(posX, posY, horizontalScale, verticalScale);
+      fill(255);
+      textSize(20);
+      textAlign(CENTER, CENTER);
+      text(text, posX + horizontalScale/2, posY + verticalScale/2);
+    } else {
+      strokeWeight(1);
+      fill(200);
+      rect(posX, posY, horizontalScale, verticalScale);
+    }
+  }
+  
+  boolean getIsPressed() {
+    if (mouseInside && keys[4])
+      return true;
 
-static boolean[] keys = new boolean[7];
-
-boolean Key;
-void mousePressed() {
-  if (mouseButton==LEFT)
-  Key = true;
-}
-
-void mouseReleased() {
-  if (mouseButton==LEFT)
-  Key = false;
+    return false;
+  }
 }
