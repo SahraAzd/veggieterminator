@@ -1,1 +1,15 @@
+PImage bg, Title;
 
+void setup() {
+  size(700, 900);
+  bg = loadImage("CandyLandMenu.jpg");
+  
+  imageMode(CENTER);
+  Title = loadImage ("TITLE.png");
+  smooth();
+}
+
+void draw(){
+  background(bg);
+  image(Title, 350, 400);
+}
