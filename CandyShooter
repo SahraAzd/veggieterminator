@@ -1,1 +1,31 @@
+int radius = 10, directionX = 1, directionY = 0;
+float x=650, y=825, speed=1.5;
+PImage CandyShooter;
 
+void candyShooter {
+  
+  smooth();
+  noStroke();
+  imageMode(CENTER);
+  CandyShooter = loadImage("CandyShooter.png");
+  CandyShooter.resize(0, 150); 
+ 
+}
+
+void keyPressed()
+{
+  if (key == CODED)
+  {
+    if (keyCode == LEFT)
+    {
+      
+      directionX=-1;
+      directionY=0;
+      
+    }
+    else if (keyCode == RIGHT)
+    {
+      
+      directionX=1;
+      directionY=0;
+}
