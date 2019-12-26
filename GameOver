@@ -1,1 +1,22 @@
+PImage gameoverimg;
 
+gameoverImg = loadImage("game-over.jpg")
+
+  void checkMiss() {
+    
+    if (failedveggies > 3)
+      mode = 2;
+}
+
+void gameOver() {
+  
+  background(gameoverimg);
+  
+}
+
+void mousePressed() {
+  
+  if (case==2) {
+    case==0;
+    
+  }
